@@ -1,1 +1,1 @@
-## Random stuff that I'm working on to build up my skillset. 
+# Just some random stuff that I'm working on as I continue to learn new skills. 
