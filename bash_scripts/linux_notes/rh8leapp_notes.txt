@@ -1,2 +1,1 @@
-# List of command that were used to upgrade the AAP servers
-# from rhel 8 to rhel 9  
+# List of command that were used to upgrade the AAP servers from rhel 8 to rhel 9  
