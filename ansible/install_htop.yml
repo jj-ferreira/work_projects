@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+
+  - name: install apache
+    dnf:
+      name:  htop
+    when: ansible_distribution == "RedHat"
