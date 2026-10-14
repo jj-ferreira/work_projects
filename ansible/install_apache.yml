@@ -1,0 +1,22 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+
+  - name: install apache
+    apt:
+      name: apache2
+    when: ansible_distribution == "Ubuntu"
+
+  - name: install apache
+    dnf:
+      name:  httpd    
+    when: ansible_distribution == "RedHat"
+
+  - name: start and enable apache on RedHat
+    systemd:
+      name: httpd
+      state: started
+      enabled: true  

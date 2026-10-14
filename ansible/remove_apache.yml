@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+
+  - name: install apache
+    apt:
+      name: apache2
+      state: absent
+    when: ansible_distribution == "Ubuntu"
+
+  - name: install apache
+    dnf:
+      name: httpd
+      state: absent
+    when: ansible_distribution == "RedHat"  
+
