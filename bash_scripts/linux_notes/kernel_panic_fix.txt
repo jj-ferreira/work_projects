@@ -11,7 +11,7 @@ apt-get purge linux-headers-5-15.0-198
 
 rm /boot/config-5.15.0-198-generic
 rm /boot/System.map-5.15.0-198-generic
-rm vmlinuz-5.15.0-198-generic
+rm /boot/vmlinuz-5.15.0-198-generic
 
 ##  Confirm purge ##
 
