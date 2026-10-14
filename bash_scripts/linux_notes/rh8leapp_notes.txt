@@ -1,1 +1,50 @@
-# List of command that were used to upgrade the AAP servers from rhel 8 to rhel 9  
+## List of commands that were used to upgrade the AAP servers from rhel 8 to rhel 9 ##
+
+
+## Verify subscription and enable repos ##
+
+subscription-manager status
+subscription-manager repos --enable rhel-8-for-x86_64-baseos-rpms
+subscription-manager repos --enable rhel-8-for-x86_64-appstream-rpms
+subscription-manager release --set 8.10
+dnf versionlock clear
+dnf install leapp-upgrade
+dnf update
+reboot
+
+## Run and review pre-upgrade report ##
+
+leapp preupgrade --target 9.6
+cat /var/log/leapp/leapp-report.txt
+
+
+## Take VM Snapshot via vCenter  ##
+
+## Take snapshot of currently failed services ##
+
+systemctl --failed >> /var/log/failedservices.txt
+cat /var/log/failedservices.txt
+
+## Perform upgrade ##
+
+leapp upgrade --target 9.6
+reboot
+
+## Verify Upgrade ##
+
+cat /etc/os-release
+uname -r
+systemctl --failed
+dnf update
+check rhel portal and view subscriptions--registered systems
+
+## Server checks ##
+
+timedatectl
+cat /etc/resolv.conf
+check app services
+
+## Delete VM snapshot after 48 hours ##
+
+
+ 
