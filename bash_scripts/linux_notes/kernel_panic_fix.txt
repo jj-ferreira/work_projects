@@ -1,19 +1,23 @@
 ##  Remediation for kernel panic that occurred after 5.15.0-198 k update
 
-##  Purge kernel versions
+##  Purge kernel versions ##
 
 apt-get purge linux-image-5.15.0-198-generic
 apt-get purge linux-image-5.15.0-198
 apt-get purge linux-headers-5-15.0-198-generic
 apt-get purge linux-headers-5-15.0-198
 
-##  Delete kernel files under /boot 
+##  Delete kernel files under /boot ## 
 
 rm /boot/config-5.15.0-198-generic
 rm /boot/System.map-5.15.0-198-generic
 rm vmlinuz-5.15.0-198-generic
 
-##  Update GRUB
+##  Confirm purge ##
+
+dpkg --list | grep linux-image-5.15.0-1*
+
+##  Update GRUB ##
 
 update-grub
 
